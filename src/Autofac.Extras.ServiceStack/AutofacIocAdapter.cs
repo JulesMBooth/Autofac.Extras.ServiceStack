@@ -5,15 +5,11 @@ namespace Autofac.Extras.ServiceStack
 {
     public class AutofacIocAdapter : IContainerAdapter
     {
-        public AutofacIocAdapter(IContainer container)
-        {
-            Container = container;
-        }
-
         public IContainer Container { get; }
 
-        public T Resolve<T>() 
-            => GetCurrentContext().Resolve<T>();
+        public AutofacIocAdapter(IContainer container) => Container = container;
+
+        public T Resolve<T>() => GetCurrentContext().Resolve<T>();
 
         public T TryResolve<T>()
         {
@@ -23,7 +19,6 @@ namespace Autofac.Extras.ServiceStack
             return context.TryResolve(out result) ? result : default(T);
         }
 
-        private ILifetimeScope GetCurrentContext()
-            => CallContext.LogicalGetData(Consts.AutofacScopeLogicalContextKey) as ILifetimeScope ?? Container;
+        private ILifetimeScope GetCurrentContext() => CallContext.LogicalGetData(Consts.AutofacScopeLogicalContextKey) as ILifetimeScope ?? Container;
     }
 }

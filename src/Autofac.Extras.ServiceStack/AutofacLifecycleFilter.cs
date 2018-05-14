@@ -10,10 +10,10 @@ namespace Autofac.Extras.ServiceStack
         {
             appHost.Container.Adapter = new AutofacIocAdapter(container);
 
-            appHost.GlobalRequestFilters.Add((req, resp, dto) => CreateScope(container));
+            appHost.PreRequestFilters.Add((req, resp) => CreateScope(container));
+
             appHost.GlobalResponseFilters.Add((req, resp, dto) => DisposeScope());
 
-            appHost.GlobalMessageRequestFilters.Add((req, resp, dto) => CreateScope(container));
             appHost.GlobalMessageRequestFilters.Add((req, resp, dto) => DisposeScope());
             
             return appHost;
@@ -21,7 +21,7 @@ namespace Autofac.Extras.ServiceStack
 
         private static void CreateScope(IContainer container)
         {
-            var scope = container.BeginLifetimeScope(MatchingScopeLifetimeTags.RequestLifetimeScopeTag);
+            ILifetimeScope scope = container.BeginLifetimeScope(MatchingScopeLifetimeTags.RequestLifetimeScopeTag);
             CallContext.LogicalSetData(Consts.AutofacScopeLogicalContextKey, scope);
         }
 

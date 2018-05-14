@@ -9,9 +9,13 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Autofac.Extras.ServiceStack</RootNamespace>
     <AssemblyName>Autofac.Extras.ServiceStack</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,6 +35,33 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=4.8.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\..\source\Workspaces\Water Mobile\Releases\0.8\packages\Autofac.4.8.1\lib\net45\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack, Version=4.5.14.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\..\source\Workspaces\Water Mobile\Releases\0.8\packages\ServiceStack.4.5.14\lib\net45\ServiceStack.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Client, Version=4.5.14.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\..\source\Workspaces\Water Mobile\Releases\0.8\packages\ServiceStack.Client.4.5.14\lib\net45\ServiceStack.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Common, Version=4.5.14.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\..\source\Workspaces\Water Mobile\Releases\0.8\packages\ServiceStack.Common.4.5.14\lib\net45\ServiceStack.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Interfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=02c12cbda47e6587, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Interfaces.5.1.0\lib\net45\ServiceStack.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.OrmLite, Version=4.5.14.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\..\source\Workspaces\Water Mobile\Releases\0.8\packages\ServiceStack.OrmLite.4.5.14\lib\net45\ServiceStack.OrmLite.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Redis, Version=4.5.14.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\..\source\Workspaces\Water Mobile\Releases\0.8\packages\ServiceStack.Redis.4.5.14\lib\net45\ServiceStack.Redis.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Server, Version=4.5.14.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\..\source\Workspaces\Water Mobile\Releases\0.8\packages\ServiceStack.Server.4.5.14\lib\net45\ServiceStack.Server.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Text, Version=5.0.0.0, Culture=neutral, PublicKeyToken=02c12cbda47e6587, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Text.5.1.0\lib\net45\ServiceStack.Text.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -47,6 +78,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="paket.references" />
     <None Include="paket.template" />
   </ItemGroup>
@@ -59,15 +91,7 @@
   </Target>
   -->
   <Choose>
-    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.5' Or $(TargetFrameworkVersion) == 'v4.5.2')">
-      <ItemGroup>
-        <Reference Include="Autofac">
-          <HintPath>..\packages\Autofac\lib\net40\Autofac.dll</HintPath>
-          <Private>True</Private>
-          <Paket>True</Paket>
-        </Reference>
-      </ItemGroup>
-    </When>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.5' Or $(TargetFrameworkVersion) == 'v4.5.2')" />
   </Choose>
   <Choose>
     <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.5' Or $(TargetFrameworkVersion) == 'v4.5.2')">

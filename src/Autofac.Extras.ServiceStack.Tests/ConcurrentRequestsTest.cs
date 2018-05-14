@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Autofac.Extras.ServiceStack.Tests.Utils;
+using ServiceStack;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Autofac.Extras.ServiceStack.Tests.Utils;
-using FluentAssertions;
-using ServiceStack;
 using Xunit;
+using FluentAssertions;
 
 namespace Autofac.Extras.ServiceStack.Tests
 {
@@ -42,7 +42,7 @@ namespace Autofac.Extras.ServiceStack.Tests
                 .Select(i => new GetValueResponse { Value = i })
                 .ToList();
 
-            responses.ShouldAllBeEquivalentTo(expectedResponses);
+            responses.Should().BeEquivalentTo(expectedResponses);
         }
 
         public void Dispose()
